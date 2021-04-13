@@ -18,7 +18,7 @@ class PublishController extends Controller
             foreach ($fetch_subscriptions as $subscription) {
                 $url = $subscription->endpoint;
                 // return response(($url));
-                $response = Http::post("https://jsonplaceholder.typicode.com/users", [$request['data']]);
+                $response = Http::post($url, [$request['data']]);
                 // return response(['fail----> '. $response->successful()]);
                 ($response->successful() == true) ? $success_record[] = $url : $failed_record[] = $url;
             }
